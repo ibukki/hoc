@@ -22,8 +22,19 @@
 		<version.hibernate>4.3.6.Final</version.hibernate>
 		<!-- AspectJ -->
 		<aspectj.version>1.7.2</aspectj.version>
+		<target.dir>target</target.dir>
 	</properties>
+	<profiles>
+	    <profile>
+	      <id>eclipse-folders</id>
+	      <properties>
+	        <target.dir>target-eclipse</target.dir>
+	      </properties>
+	    </profile>
+  	</profiles>
 	<build>
+		<outputDirectory>${basedir}/${target.dir}/classes</outputDirectory>
+    	<testOutputDirectory>${basedir}/${target.dir}/test-classes</testOutputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>

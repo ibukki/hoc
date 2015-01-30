@@ -79,6 +79,13 @@ public class HomeController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/applyCompany")
+	public ModelAndView applyCompany(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("user/pages/applyCompany");
+		return modelAndView;
+	}
+	
 	private String getIncludedPageFromUrl(String pageUrl){
 		String includedFileUrl = null;
 		if(pageUrl.lastIndexOf("/") > 0){
