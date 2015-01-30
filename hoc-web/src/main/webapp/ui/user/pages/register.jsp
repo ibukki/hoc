@@ -3,6 +3,7 @@
 <html ng-app="hocAdmin">
 <head>
 <meta charset="UTF-8" />
+<link rel="shortcut icon" href="ui/common/images/favicon.ico" />
 <title>Prometheus - Register</title>
 <jsp:include page="../../common/pages/agular_common_include.html" />
 <script src="ui/common/js/agularAppInit.js"></script>
@@ -12,40 +13,11 @@
 <script src="ui/user/js/controllers/registerController.js"></script>
 </head>
 <body ng-controller="registerController">
-	<header>
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#"> <img alt="Brand"
-						src="ui/common/images/favicon.ico">Prometheus
-					</a>
-				</div>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">Login
-							<span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="login.htm">Individual User Login</a></li>
-							<li><a href="login.htm">Enterprise User Login</a></li>
-						</ul></li>
-					<li><a href="register.htm">Register</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</nav>
-	</header>
+	<jsp:include page="header_navi.jsp" />
 	<section class="reg-container">
 		<div class="reg-content">
 			<header>Sign Up</header>
-			<div class="info"><label>or you can <a href="companyApply.htm">apply for a company account</a></label></div>
+			<div class="info"><label>or you can <a href="applyCompany.htm">apply for a company account</a></label></div>
 			<form name="registerForm">
 				<div class="basic-info">
 					<header>Basic Info</header>
