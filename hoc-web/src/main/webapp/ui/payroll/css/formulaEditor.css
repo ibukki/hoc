@@ -1,0 +1,392 @@
+.formulaModal{
+	width:960px;
+	height:600px;
+	position:relative;
+}
+
+.formulaModal li{
+	list-style:none;
+}
+
+.formulaModal .ui-draggable-dragging{
+	max-width:100px;
+	overflow:hidden;
+	text-overflow:clips;
+	height:30px;
+	line-height:30px;
+	display:block;
+}
+
+.formulaPanel{
+	width:100%;
+	height:480px;
+	overflow:none;
+}
+
+.formulaPanel h3{
+	margin-top:5px;
+}
+
+.contentSwitch{
+    border-radius: 3px;
+    font-size: 11px;
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    width: 150px;
+    z-index:99;
+}
+
+.switchBtn{
+	height:100%;
+	font-size:11px;
+	text-align:center;
+	line-height:20px;
+	padding:0px 10px 0px 10px;
+	margin-left:5px;
+	border:0px;
+}
+
+.enlargeBtn{
+	top:2px;
+}
+
+.paramPanel{
+	border-radius:4px 0px 0px 4px;
+}
+
+.formulaPanel .inputP{
+	float:left;
+	width:30%;
+	height:100%;
+	overflow:auto;
+}
+
+.formulaPanel .outputP{
+	float:left;
+	width:70%;
+	height:100%;
+	overflow-y:hidden;
+}
+
+.inputParams ul, .inputParams li{
+	margin:0px;
+	padding:0px;
+}
+
+.inputParams li{
+	list-style:none;
+}
+
+
+
+.formula_line{
+	position:relative;
+}
+
+.btn_edit{
+	font-size:11px;
+	width:16px;
+	height:16px;
+	position:absolute;
+	right:40px;
+	cursor:pointer;
+}
+
+.btn_add{
+	font-size:11px;
+	width:16px;
+	height:16px;
+	position:absolute;
+	right:20px;
+	cursor:pointer;
+}
+
+.btn_add_header{
+	cursor:pointer;
+}
+
+.btn_remove{
+	font-size:11px;
+	position:absolute;
+	width:16px;
+	height:16px;
+	position:absolute;
+	right:0px;
+	cursor:pointer;
+}
+
+.btn_confirm{
+	cursor:pointer;
+	color:#7FBA00;
+	background:transparent;
+	font-size:16px;
+	font-weight:700;
+	border:none;
+	top:0px;
+}
+
+.btn_confirm[disabled]{
+	color:#eee;
+}
+
+.temp_btn_set{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.temp_btn_add{
+	float:left;
+}
+
+.temp_btn_cancel{
+	float:right;
+}
+
+.formulaInput{
+	border-radius:0px;
+}
+
+.dragItem{
+	display:block;
+	padding:3px;
+	background:#f3f3f3;
+	border:1px solid #ccc;
+	border-radius:2px;
+	font-size:11px;
+	margin-top:3px;
+	cursor:pointer;
+}
+
+.operatorItem{
+	display:inline-block;
+	width:40px;
+	height:40px;
+	font-size:18px;
+	margin-left:10px !important;
+	margin-top:10px  !important;
+	text-align:center;
+	line-height:40px;
+	border:1px solid #ccc;
+	border-radius:2px;
+	float:left;
+	cursor:pointer;
+}
+
+.operatorItem span{
+	display:block;
+	width:100%;
+	height:100%;
+}
+
+.operatorItem:hover{
+	background:#ccc;
+	color:#1D7AD9;
+}
+
+.dropArea{
+	width:100%;
+	height:100%;
+	overflow-x:auto;
+	margin-bottom:0px;
+}
+
+.scrollContainer{
+	width:9999px;
+	height:100%;
+}
+
+.easy_mode, .expert_mode{
+	height:100%;
+}
+
+
+.fLinesUL{
+	padding:0px;
+	width:100%;
+	height:100%;
+	border-top:1px solid #eee;
+}
+
+.fLinesUL .fLine{
+	list-style:none;
+	height:35px;
+	border-bottom:1px solid #ddd;
+	margin-top:1px;
+	line-height:30px;
+	padding-top:2px;
+}
+
+.fLine .lineBtn{
+	line-height:30px;
+	display:line-block;
+	float:left;
+	height:35px;
+	color:#ddd;
+}
+
+.fLine .lineBtn:hover{
+	color:#333;
+}
+
+.fLine .lineBtn button{
+	border:none;
+	height:30px;
+	width:30px;
+	background:transparent;
+}
+
+.fItmsUL{
+	margin:0px;
+	line-height:30px;
+	padding:0px;
+	height:30px;
+	float:left;
+}
+
+.fItm{
+	float:left;	
+	list-style:none;
+	height:100%;
+	border-radius:3px;
+	margin-left:5px;
+	cursor:pointer;
+	position:relative;
+	text-align:center;
+}
+
+.fItmC{
+	overflow:hidden;
+	height:100%;
+}
+
+.fItmC-input{
+	height:100%;
+}
+
+.fItmStart{
+	min-width:80px;
+}
+
+.emptyItm{
+	min-width:80px;
+}
+
+.itemDisp{
+	padding: 0px 5px;
+	text-align:center;
+}
+
+.actBtn{
+	border: 0px;
+	float: right;
+	line-height: 28px;
+	width: 16px;
+	height: 28px;
+	text-align: center;
+	padding: 0px;
+}
+
+.actBtn span{
+	font-size: 14px;
+	width: 100%;
+	display: block;
+	height: 100%;
+	line-height: 24px;
+}
+
+.okBtn{
+	float:right;
+	font-size:10px;
+	line-height:30px;
+	cursor:pointer;
+	padding-right:5px;
+	padding-left:5px;
+	color:#4CB848;
+}
+
+.itmSelected{
+	border:2px dotted #1D7AD9 !important;
+}
+
+.dropOver{
+	border:2px dotted #1D7AD9 !important;
+}
+
+.switchTab{
+	color:#eee;
+}
+
+.itemInput{
+	line-height:30px;
+	padding:0px 5px 0px 5px;
+}
+
+#formulaTextArea{
+	width:100%;
+	height:100%;
+}
+
+.funcParamEdit{
+	position: absolute;
+	background: #f5f5f5;
+	width: 100%;
+	z-index: 2;
+	border-radius: 0px 0px 5px 5px;
+	text-align: left;
+	padding-bottom:5px;
+	box-shadow: 0 0 5px #333;
+	margin-top:2px;
+}
+
+.funcParamEdit ul, .funcParamEdit li{
+	margin:0px;
+	padding:0px;
+}
+
+.funcParamEdit li{
+	padding:0px 10px;
+}
+
+
+.funcParamEdit label{
+	font-size:11px;
+	font-weight:50px;
+	font-color:#eee;
+	padding: 0px;
+	margin: 0px;
+}
+
+.funcParamEdit .collapseBtn{
+	width: 24px;
+	height: 16px;
+	font-size: 6px;
+	position: absolute;
+	text-align: center;
+	line-height: 16px;
+	top: 5px;
+	right: 5px;
+}
+
+.funcParamEdit span{
+	display:inline-block;
+	width:100%;
+}
+
+.funcParamEdit input[type="text"]{
+	height:20px;
+	border-radius:3px;
+	border-color:#ccc;
+	width:100%;
+	line-height: 20px;
+	font-size: 11px;
+}
+
+.addTempParam{
+	margin-top:10px;
+}
+
+.addTempParamBtn{
+	margin-top: 15px;
+}

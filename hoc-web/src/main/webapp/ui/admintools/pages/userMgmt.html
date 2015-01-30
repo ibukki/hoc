@@ -1,0 +1,54 @@
+<div class="usermgmtPanel" ng-controller="userMgmtController">
+	<div class="page-header">
+		<h1>
+			User Management<small></small>
+		</h1>
+	</div>
+	<div>
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Admin Tools</a></li>
+			<li class="active">User Management</li>
+		</ol>
+	</div>
+	<div class="userMgmtContainer">
+		<div class="userMgmtButtonSet">
+			<button class="btn btn-primary" ng-click='getUserInfo()'>
+				<span class="glyphicon glyphicon-user" title="display"></span>
+			</button>
+			<button class="btn btn-primary" ng-click='deleteUser()'>
+				<span class="glyphicon glyphicon-trash" title="delete"></span>
+			</button>
+			<button class="btn btn-primary" ng-click='createUser()'>
+				<span class="glyphicon glyphicon-plus" title="create"></span>
+			</button>
+			<button class="btn btn-primary" ng-click='saveUserInfo()'>
+				<span class="glyphicon glyphicon-floppy-disk" title="save"></span>
+			</button>
+		</div>
+		<div class='userMgmtInputForm'>
+			<table style="margin: 0 auto; width: 80%">
+				<tr>
+					<td>Email</td>
+					<td><input type="text" class="form-control"
+						ng-model="userInfoInput.email" /></td>
+				</tr>
+				<tr>
+					<td>User Name</td>
+					<td><input type="text" class="form-control"
+						ng-model="userInfoInput.userId" /></td>
+				</tr>
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" class="form-control"
+						ng-model="userInfoInput.firstName" /></td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" class="form-control"
+						ng-model="userInfoInput.lastName" /></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

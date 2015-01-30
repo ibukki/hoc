@@ -1,0 +1,2 @@
+mvn install:install-file -DgroupId=com.bubuwork -DartifactId=antlr_bukki -Dversion=1.0.1 -Dpackaging=jar -Dfile=antlr_bukki_1.0.1.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=org.antlr -DartifactId=antlr -Dversion=4.0 -Dpackaging=jar -Dfile=antlr-4.4-complete.jar -DgeneratePom=true

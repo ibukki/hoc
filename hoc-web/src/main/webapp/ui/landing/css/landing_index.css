@@ -1,0 +1,45 @@
+body,html{
+	margin:0px;
+	padding:0px;
+	background-color: #fff;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    height:100%;
+}
+
+.doc-header{
+	
+}
+
+.doc-header nav{
+	margin:0px;
+	padding:0px;
+}
+
+.navbar-brand img{
+	border-radius:5px;
+	width:20px;
+	height:20px;
+}
+
+.doc-container{
+	min-height:400px;
+}
+
+.bg-img{
+	background:url(../images/hr-in-the-cloud.jpg);
+	width:100%;
+	clip:rect(0px 100px 100px 0px);
+	height:450px;
+	background-position:70px -50px;
+}
+
+.doc-footer{
+	border-top: 1px solid #e5e5e5;
+    color: #767676;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    text-align: center;
+}

@@ -1,0 +1,64 @@
+.variableConfContent{
+	width: 80%;
+  	height: 450px;
+  	box-shadow: 0 1px 3px #eee, inset 0 0 3px #fff;
+	background: #fbfbfb;
+	min-width: 240px;
+	margin: 15px 20px 0 0px;
+	border: solid 1px #e1e1e1;
+}
+
+.variableConfContent ul{
+	width:100%;
+	margin:0;
+	padding:0;
+	margin-top:10px;
+}
+
+.variableConfContent ul li{
+	width:100%;
+	height:50px;
+	position: relative;
+	padding: 10px 10px 5px 10px;
+	border-bottom: solid 1px #e1e1e1;
+	border-top: solid 1px #fff;
+	background: #fbfbfb;
+	min-height: 20px;
+	line-height: 20px;
+	cursor: pointer;
+	list-style:none;
+}
+
+.variableConfRowAction{
+	position:absolute;
+	width:180px;
+	height:30px;
+	right:10px;
+	top:3px;
+}
+
+.rmConfBtn{
+	margin-left: 20px;
+}
+
+.variableConfAside{
+	width:40%;
+}
+
+.vrcow{
+	margin-top:5px;
+}
+
+.vcrow .label{
+	color:#666;
+	font-size:80%;
+}
+
+.vcrow .glyphicon{
+	top:0px;
+	cursor:pointer;
+}
+
+.vcDescr{
+	width:250px;
+}

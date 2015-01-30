@@ -1,0 +1,23 @@
+<nav>
+<div class="togglerWrapper">
+	<div class="sidebar-toggler glyphicon glyphicon-chevron-right" title="collapse" ng-click="toggleSideNav()"></div>
+</div>
+<div id="main_navi_sm" ng-style="pageHeightStyle">
+	<ul class="sm_sider_menu">
+		<li ng-repeat="item in mainNaviTreeData" >
+			<span ng-class="item.icon ? item.icon : 'glyphicon glyphicon-plus'" title="{{item.label}}"></span>
+			<ul ng-show="item.children" class="sm_sider_submenu">
+				<li class='menu_title'>{{item.label}}</a></li>
+				<li ng-repeat="subItem in item.children">
+					<span><a ng-href="{{subItem.href}}">{{subItem.label}}</a></span>
+					<ul ng-show="subItem.children" class="sm_sider_thirdmenu">
+						<li ng-repeat="thirdItem in subItem.children">
+							<span><a ng-href="{{thirdItem.href}}">{{thirdItem.label}}</a></span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</nav>

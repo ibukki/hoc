@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="ui/payroll/css/formulaEditor.css"></link>
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog formulaModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind="formula.title"></h4>
+      </div>
+      <div class="modal-body formulaPanel">
+		<div class="inputP">
+			<h3>Input</h3>
+			<div class="panel-group">
+			  <div class="panel panel-default paramPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_wagetype')">
+				          Wage Types
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_wagetype">
+				      <div class="panel-body">
+				        <div class="inputParams">
+							<ul>
+								<li ng-repeat="input in formula.inputList">
+									<span class="dragItem" ng-model="input" data-drag="true" jqyoui-draggable="{placeholder:'true'}" >
+										{{input.name}}
+									</span>
+								</li>
+							</ul>
+						</div>
+				      </div>
+				    </div>
+			    </div>
+			    <div class="panel panel-default paramPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_function')">
+				          Functions
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_function">
+				      <div class="panel-body">
+					      <div class="inputParams">
+						        <ul>
+						        	<li ng-repeat="func in formula.functionList">
+						        		<span class="dragItem">{{func.name}}</span>
+						        	</li>
+						        </ul>
+					        </div>
+				      </div>
+				    </div>
+			    </div>
+			    <div class="panel panel-default paramPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_tempparam')">
+				          Temporary Parameters
+				          <span class="glyphicon glyphicon-info-sign" data-placement="right" data-type="info" data-container="body" data-trigger="hover" bs-tooltip="formula.tempParamTooltip"></span>
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_tempparam">
+				      <div class="panel-body">
+				        <div class="inputParams">
+							<ul>
+								<li ng-repeat="temp in formula.tempParamList">
+									<span class="dragItem">{{temp}}</span>
+								</li>
+								<li ng-show="formula.editingTempParam">
+									<input type="text" class="form-control" ng-model="formula.newTempParam"/>
+									<div class="temp_btn_set">
+										<button class="btn-sm btn-primary temp_btn_add" ng-click="formula.saveTempParam()">Save</button>
+										<button class="btn-sm btn-danger temp_btn_cancel" ng-click="formula.cancelTempParam()">Cancel</button>
+									</div>
+								</li>
+								<li><button class="btn-sm btn-primary" ng-show="!formula.editingTempParam" ng-click="formula.addTempParam()">Add A Temporary Param</button></li>
+							</ul>
+						</div>
+				      </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="outputP">
+				<h3>{{formula.outputWT}}</h3>
+				<div>
+					<div class="input-group">
+					  <input type="text" class="form-control formulaInput" data-drop="true" jqyoui-droppable="{onDrop:'processDrop(item)'}" ng-model="formula.editingLine">
+					  <span class="input-group-addon">
+					  	<button class="glyphicon glyphicon-ok btn_confirm" ng-disabled="formula.disableEdit" ng-click="formula.finishEdit()"></button>
+					  </span>
+					</div>
+				</div>
+				<div class="formula_body thumbnail" >
+					<h5>Formula Line <span class="glyphicon glyphicon-plus btn_add_header" ng-click="formula.appendLine()"></span></h5>
+					<ul>
+						<li class="formula_line" ng-repeat="ln in formula.lines">
+							<span>{{ln.line}}</span>
+							<span class="glyphicon glyphicon-edit btn_edit" ng-click="formula.editLine($index)"></span>
+							<span class="glyphicon glyphicon-plus btn_add" ng-click="formula.addLine($index)"></span>
+							<span class="glyphicon glyphicon-remove btn_remove" ng-click="formula.removeLine($index)"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	      <div class="modal-footer">
+	      	<div id="ppw-wizardCtrl">
+				<button class="btn btn-primary cancelBtn" ng-click="$hide()">Cancel</button>
+				<button class="btn btn-primary saveBtn" ng-click="formula.savetoMem()">OK</button>
+			</div>
+	      </div>
+    </div>
+  </div>
+</div>

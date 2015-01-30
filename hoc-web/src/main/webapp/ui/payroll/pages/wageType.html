@@ -1,0 +1,20 @@
+<div class="wageTypePanel" ng-controller="wageTypeController">
+	<div class="page-header">
+	  <h1>Wage Type<small></small><span class="glyphicon glyphicon-star-empty page-favor-icon" title="Add to favorite"></span></h1>
+	</div>
+	<div class="wageTypeContainer">
+		<div class="wageTypeConfButtonSet">
+		          <a class="btn btn-primary btn-sm" href="javascript:void(0)" ng-click='createNewWageType()'>
+  						<i class="glyphicon glyphicon-plus fa-sm"></i> New
+  				   </a>
+  				   <a class="btn btn-danger btn-sm" href="javascript:void(0)" ng-click='deleteWageType()'>
+  						<i class="fa fa-trash-o fa-sm"></i> Delete
+  				   </a>	
+				  <a class="btn btn-success btn-sm" href="javascript:void(0)" ng-click='saveWageType()'>
+  						<i class="fa fa-floppy-o fa-sm"></i> Save
+  				  </a>
+		</div>
+		<div ui-grid="wageTypeConf.gridOptions" ui-grid-edit ui-grid-resize-columns ui-grid-cellnav ui-grid-selection class="wtc-wagetypeGrid"></div>
+		
+	</div>
+</div>

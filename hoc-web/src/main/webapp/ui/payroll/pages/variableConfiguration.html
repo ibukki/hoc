@@ -1,0 +1,29 @@
+<div class="payrollConfigPanel" ng-controller="variableConfigurationController">
+	<div class="page-header">
+	  <h1>Variables Configuration<small></small><span class="glyphicon glyphicon-star-empty page-favor-icon" title="Add to favorite"></span></h1>
+	</div>
+	<div class="variableConfContainer">
+		<div class="variableConfContent">
+			<ul ng-repeat="item in configData">
+				<li>
+					<span ng-click="selectOneConfig($index,'view')">{{item.descr}} ({{item.configGrpDescr}})</span>
+					<div class="dropdown variableConfRowAction">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+					    Action
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="selectOneConfig($index,'edit')">Edit</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="addSubConfig($index)">Add sub item</a></li>
+					    <li role="presentation"><button class="rmConfBtn btn btn-danger" role="menuitem" tabindex="-1" >Delete</button></li>
+					  </ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li ng-click="createConfig()">Create a New Config</li>
+			</ul>
+		</div>
+		
+	</div>
+</div>

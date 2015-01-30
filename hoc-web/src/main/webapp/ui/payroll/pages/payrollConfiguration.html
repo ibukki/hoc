@@ -1,0 +1,20 @@
+<div class="payrollConfigPanel" ng-controller="payrollConfigurationController">
+	<div class="page-header">
+	  <h1>Variables Configuration<small></small><span class="glyphicon glyphicon-star-empty page-favor-icon" title="Add to favorite"></span></h1>
+	</div>
+	<div class="wageTypeContainer">
+		<div class="wageTypeConfButtonSet">
+				  <button class="btn btn-primary" ng-click='deleteConfig()'>
+				  	<span class="glyphicon glyphicon-trash"></span>
+				  </button>
+				  <button class="btn btn-primary" ng-click='createConfig()'>
+				  	<span class="glyphicon glyphicon-plus"></span>
+				  </button>
+				  <button class="btn btn-primary" ng-click='saveConfig()'>
+				  	<span class="glyphicon glyphicon-floppy-disk" title="save"></span>
+				  </button>
+		</div>
+		<div ui-grid="variableConfig.gridOptions" ui-grid-edit ui-grid-resize-columns ui-grid-cellnav ui-grid-selection class="variablesConfigGrid"></div>
+		
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<step>
+	<input-param>
+		<param name='w_ddd'>
+			<type>fuck</type>
+		</param>
+	</input-param>
+	<output-param>
+		<param name='out_shit'>
+			<type>shitfuck</type>
+			<formula-body>
+		        <formula-line>
+		          <formula-item key='a' type='1'/>
+		          <formula-item key='=' type='2'/>
+		          <formula-item key='100' type='4' />
+		        </formula-line>
+		        <formula-line>
+		          <formula-item key='b' type='1'/>
+		          <formula-item key='=' type='2'/>
+		          <formula-item key='200' type='4' />
+		        </formula-line>
+	      </formula-body>
+		</param>
+	</output-param>
+</step>
+

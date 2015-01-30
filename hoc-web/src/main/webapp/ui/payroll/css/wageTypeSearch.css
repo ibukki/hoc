@@ -1,0 +1,30 @@
+.search-form ul{
+	margin:0;
+	padding:0;
+}
+
+.search-form li{
+	list-style:none;
+}
+
+.id-col{
+	width:30%;
+	display:inline-block;
+}
+
+.descr-col{
+	width:60%;
+	display:inline-block;
+}
+
+.search-result ul{
+	margin:0;
+}
+
+.search-result li{
+	list-style:none;	
+}
+
+.okBtn{
+	margin-left:10px;
+}

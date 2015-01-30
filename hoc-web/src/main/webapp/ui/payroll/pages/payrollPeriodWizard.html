@@ -1,0 +1,50 @@
+<div class="modal ppwModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind="title"></h4>
+      </div>
+      <div class="modal-body">
+		<ul class="nav nav-pills" role="tablist">
+		  <li role="presentation" ng-class="{'active':payperiodWizard.show_step1}"><a href="javascript:void(0)">Basic Info</a></li>
+		  <li role="presentation" ng-class="{'active':payperiodWizard.show_step2}"><a href="javascript:void(0)">Periods</a></li>
+		</ul>
+		<div id="ppw-step1" ng-show="payperiodWizard.show_step1">
+			<div class='ppw-row'>
+				<span class="label">Payroll Year:</span>
+				<span class="ppw-input">
+					<select type="text" class="form-control" ng-model="payperiodWizard.payrollPeriodYear" ng-options="value.id as value.label for value in payperiodWizard.payrollPeriodYears"></select>
+				</span>
+			</div>
+			<div class='ppw-row'>
+				<span class="label">Period Name:</span>
+				<span class="ppw-input">
+					<input type="text" class="form-control" ng-model="payperiodWizard.payrollPeriodName"></input>
+				</span>
+			</div>
+			<div class="ppw-row">
+				<span class="label">Payroll Type</span>
+				<span class="ppw-input">
+					<select class="form-control" ng-model="payperiodWizard.payrollPeriodType" ng-options="value.id as value.label for value in payperiodWizard.payrollPeriodTypes">
+						<option>--</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		<div id="ppw-step2" ng-show="payperiodWizard.show_step2">
+			<div data-ui-grid="payperiodWizard.gridOptions" data-container=".ppwModal" data-ui-grid-edit class="ppwPeriodGrid"></div>
+		</div>
+		
+      </div>
+      <div class="modal-footer">
+      	<div id="ppw-wizardCtrl">
+			<button class="btn btn-primary cancelBtn" ng-click="$hide()">Cancel</button>
+			<button class="btn btn-primary nextBtn" ng-hide="payperiodWizard.show_step2" ng-click="ppwNext()">Next</button>
+			<button class="btn btn-primary saveBtn" ng-show="payperiodWizard.show_step2" ng-click="ppwSave()">Save</button>
+			<button class="btn btn-secondary previousBtn" ng-click="ppwPrevious()">Pervious</button>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>

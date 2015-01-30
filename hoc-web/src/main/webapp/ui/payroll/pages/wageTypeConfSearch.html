@@ -1,0 +1,47 @@
+<link href="ui/payroll/css/wageTypeSearch.css" rel="stylesheet"></link>
+<div class="modal ppwModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind="wtsearch_title"></h4>
+      </div>
+      <div class="modal-body">
+		<div class="search-form">
+			<ul>
+				<li>
+					<label>Wage Type ID</label>
+					<input type="text" class="form-control" ng-model="wtSearch.wagetypeId"/>
+				</li>
+				<li>
+					<label>Description</label>
+					<input type="text" class="form-control" ng-model="wtSearch.description"/>
+				</li>
+				<li>
+					<label>Type</label>
+					<input type="text" class="form-control" ng-model="wtSearch.type" disabled="disabled">
+				</li>
+				<li>
+					<button class="btn btn-primary" ng-click="wtSearch.applySearch()">Apply</button>
+				</li>
+			</ul>
+		</div>
+		<div class="search-result">
+			<ul>
+				<li ng-repeat="rs in wtSearch.result">
+					<span> <input type="checkbox" ng-model="rs.selected" ng-click="wtSearch.selectResult($index)"/></span>
+					<span class="id-col">{{rs.wagetypeId}}</span>
+					<span class="descr-col">{{rs.description}}</span>
+				</li>
+			</ul>
+		</div>
+      </div>
+      <div class="modal-footer">
+      	<div id="ppw-wizardCtrl">
+			<button class="btn btn-primary cancelBtn" ng-click="$hide()">取消</button>
+			<button class="btn btn-primary okBtn" ng-click="wtSearch.proceedOK()">确认</button>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>

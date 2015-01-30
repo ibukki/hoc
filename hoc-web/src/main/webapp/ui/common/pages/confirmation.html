@@ -1,0 +1,19 @@
+<div class="modal confirmModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind="confirmationTitle"></h4>
+      </div>
+      <div class="modal-body">
+		{{confirmationText}}
+      </div>
+      <div class="modal-footer">
+      	<div id="confirm-Ctrl">
+			<button class="btn btn-primary cancelBtn" ng-click="$hide()">Cancel</button>
+			<button class="btn btn-primary okBtn" ng-click="proceedOK()">OK</button>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>

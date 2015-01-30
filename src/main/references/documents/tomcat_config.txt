@@ -1,0 +1,24 @@
+1. pom。xml
+
+2. 配置setting.xml，%MAVEN_HOME%\conf\setting.xml
+(前提是在myeclipse preferences中maven启用本地安装版本并设置用户setting.xml为本地conf下的setting.xml，而不是插件，插件应该是“我的文档”\.m2\setting.xml)，
+
+在<servers>标签中加入
+
+<server>  
+       <id>tomcat</id>  
+       <username>admin</username>  
+       <password>admin</password>  
+</server>  
+id与pom.xml文件配置相同，用户名密码与tomcat_user相同。
+
+本部分配置也可写在pox.xml <plugin>的<configuration>中
+
+ 
+
+3.给tomcat配置用户，%TOMCAT_HOME%\conf\tomcat_user.xml 增加以下角色和用户，用于tomcat_maven_plugin自动部署工程
+
+<role rolename="manager-gui"/>    
+<role rolename="manager-script"/>    
+<user username="admin" password="admin" roles="manager-gui, manager-script"/>    
+4. 启动tomcat，在工程或pom.xml上右键，maven build的goals中输入命令tomcat7:deploy即可发布，或在Run Configurations->Maven build新建一个命令，base directory里选择你的web project，在Goals栏可填写你所需要的命令。

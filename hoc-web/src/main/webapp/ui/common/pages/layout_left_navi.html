@@ -1,0 +1,8 @@
+<nav>
+<div class="togglerWrapper">
+	<div ng-class="{'sidebar-toggler':true, 'glyphicon':true, 'glyphicon-chevron-left':mainNaviExpanded, 'glyphicon-chevron-right': !mainNaviExpanded }" title="collapse" ng-click="toggleSideNav()"></div>
+</div>
+<div id="main_navi_tree" ng-style="pageHeightStyle">
+	 <abn-tree tree-data="mainNaviTreeData" tree-control="mainNaviTree" expand-level="2"></abn-tree>
+</div>
+</nav>

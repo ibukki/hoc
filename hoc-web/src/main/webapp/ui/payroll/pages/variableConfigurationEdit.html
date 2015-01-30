@@ -1,0 +1,78 @@
+<div class="aside variableConfAside" tabindex="-1" role="dialog">
+  <div class="aside-dialog">
+    <div class="aside-content">
+      <div class="aside-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="aside-title" ng-bind="configInput.title">Title</h4>
+      </div>
+      <div class="aside-body vconfigPanel">
+		<ng-form name="editVariableForm">
+			<div class="vcrow">
+				<span class="label">Configure Type (A-Z):</span>
+				<span>
+					<input ng-disabled="disableConfigTypeInput" ng-pattern="/[a-zA-Z]+/" type="text" class="form-control" ng-model="configInput.configType"/>
+				</span>
+			</div>
+			<div class="vcrow">
+				<span class="label">Description:</span>
+				<span>
+					<textarea class="form-control" ng-model="configInput.descr"></textarea>
+				</span>
+	        </div>
+	        <div class="vcrow">
+	        	<span class="label">Configure Group ID:</span>
+	        	<div class="input-group">
+	        	  <select type="text" ng-show="!isNewConfigGroup" class="form-control" ng-model="configInput.configGrpId" ng-options="value.grpId as value.description for value in configGroups"></select>
+				  <input type="text" ng-show="isNewConfigGroup" ng-pattern="/[1-9]+/" class="form-control" ng-model="configInput.configGrpId"/>
+				  <span ng-class="{'glyphicon':true, 'glyphicon-plus':!isNewConfigGroup,'glyphicon-minus':isNewConfigGroup, 'input-group-addon':true}" ng-click="createNewConfigGroup()" title="create a new/use existing config group"></span>
+				</div>
+	        </div>
+	        <div class="vcrow" ng-show="isNewConfigGroup">
+	        	<span class="label">Configure Group Description:</span>
+	        	<span>
+	        		<textarea class="form-control" ng-model="configInput.configGrpDescr"></textarea>
+	        	</span>
+	        </div>
+	        <div class="vcrow">
+	        	<span class="label">Sequence:</span>
+	        	<span>
+	        		<input type="text" disabled="disabled" class="form-control" ng-model="configInput.sequence"/>
+	        	</span>
+	        </div>
+	        <div class="vcrow">
+	        	<span class="label">Amount1:</span>
+	        	<div class="input-group">
+	        		<input type="text" class="form-control" ng-model="configInput.amount1"/>
+	        		<span id="amt1Descr" class="glyphicon glyphicon-info-sign input-group-addon" ng-click='showAmountDescription(1)'></span>
+	        	</div>
+	        </div>
+	        <div class="vcrow">
+	        	<span class="label">Amount2:</span>
+	        	<div class="input-group">
+	        		<input type="text" class="form-control" ng-model="configInput.amount2"/>
+	        		<span id="amt2Descr" class="glyphicon glyphicon-info-sign input-group-addon" ng-click='showAmountDescription(2)'></span>
+	        	</div>
+	        </div>
+	        <div class="vcrow">
+	        	<span class="label">Amount3:</span>
+	        	<div class="input-group">
+	        		<input type="text" class="form-control" ng-model="configInput.amount3"/>
+	        		<span id="amt3Descr" class="glyphicon glyphicon-info-sign input-group-addon" ng-click='showAmountDescription(3)'></span>
+	        	</div>
+	        </div>
+	        <div class="vcrow">
+	        	<span class="label">Amount4:</span>
+	        	<div class="input-group">
+	        		<input type="text" class="form-control" ng-model="configInput.amount4"/>
+	        		<span id="amt4Descr" class="glyphicon glyphicon-info-sign input-group-addon" ng-click='showAmountDescription(4)'></span>
+	        	</div>
+	        </div>
+        </ng-form>
+      </div>
+      <div class="aside-footer vconfigPanelFooter">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="editVariableForm.$valid ? saveVariableConfig(): ''">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

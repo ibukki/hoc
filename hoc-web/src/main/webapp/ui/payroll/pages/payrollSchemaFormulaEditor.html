@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="ui/payroll/css/formulaEditor.css"></link>
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog formulaModal">
+  	<div class="contentSwitch">
+  		<button class="switchBtn" ng-click="formula.switchMode()">Export Mode</button>
+  		<button class="switchBtn enlargeBtn glyphicon glyphicon-fullscreen" ng-click="formula.toggleFullScreen()"></button>
+  	</div>
+  	
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind="formula.title"></h4>
+      </div>
+      <div class="modal-body formulaPanel">
+		<div class="inputP">
+			<div class="panel-group">
+			  <div class="panel panel-default paramPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_wagetype')">
+				          Wage Types
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_wagetype">
+				      <div class="panel-body">
+				        <div class="inputParams">
+							<ul>
+								<li ng-model="formula.inputList" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone',appendTo:'.formulaModal'}" jqyoui-draggable="{placeholder:'keep',index: {{$index}}, onStart:'sfc.dragStart(input)'}"  ng-repeat="input in formula.inputList">
+									<span class="dragItem">
+										{{input.displayLabel}}
+									</span>
+								</li>
+							</ul>
+						</div>
+				      </div>
+				    </div>
+			    </div>
+			    <div class="panel panel-default operatorPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_operators')">
+				          Operators
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_operators">
+				      <div class="panel-body">
+				        <div class="inputParams">
+							<ul>
+								<li ng-model="formula.operatorList" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone',appendTo:'.formulaModal'}" jqyoui-draggable="{placeholder:'keep',index: {{$index}}}" class="operatorItem" ng-repeat="op in formula.operatorList">
+									<span title={{op.dispalyLabel}}>{{op.formulaKey}}</span>
+								</li>
+							</ul>
+						</div>
+				      </div>
+				    </div>
+			    </div>
+			    <div class="panel panel-default paramPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_function')">
+				          Functions
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_function">
+				      <div class="panel-body">
+					      <div class="inputParams">
+						        <ul>
+						        	<li ng-model="formula.functionList" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone',appendTo:'.formulaModal'}" jqyoui-draggable="{placeholder:'keep',index: {{$index}}}" ng-repeat="func in formula.functionList">
+						        		<span class="dragItem" title="{{func.formulaKey}}">{{func.displayLabel}}</span>
+						        	</li>
+						        </ul>
+					        </div>
+				      </div>
+				    </div>
+			    </div>
+			    <div class="panel panel-default paramPanel">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a ng-click="formula.toggleCollapse('p_tempparam')">
+				          Temporary Parameters
+				          <span class="glyphicon glyphicon-info-sign" data-placement="right" data-type="info" data-container="body" data-trigger="hover" bs-tooltip="formula.tempParamTooltip"></span>
+				        </a>
+				      </h4>
+				    </div>
+				    <div class="panel-collapse" id="p_tempparam">
+				      <div class="panel-body">
+				        <div class="inputParams">
+							<ul>
+								<li ng-repeat="temp in formula.tempParamList" ng-model="formula.tempParamList" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone',appendTo:'.formulaModal'}" jqyoui-draggable="{placeholder:'keep',index: {{$index}}}"  >
+									<span class="dragItem">{{temp.displayLabel}}</span>
+								</li>
+								<li ng-show="formula.editingTempParam">
+									<input type="text" class="form-control addTempParam" ng-model="formula.newTempParam"/>
+									<div class="temp_btn_set">
+										<button class="btn-sm btn-primary temp_btn_add" ng-click="formula.saveTempParam()">Save</button>
+										<button class="btn-sm btn-danger temp_btn_cancel" ng-click="formula.cancelTempParam()">Cancel</button>
+									</div>
+								</li>
+								<li><button class="btn-sm btn-primary addTempParamBtn" ng-show="!formula.editingTempParam" ng-click="formula.addTempParam()">Add A Temporary Param</button></li>
+							</ul>
+						</div>
+				      </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="outputP thumbnail">
+				<div class="dropArea">
+					<div class="scrollContainer">
+						<div class="easy_mode" ng-show="!formula.isExpertMode">
+							<ul class="fLinesUL">
+								<li class="fLine" ng-repeat="ln in sfc.fLines">
+									<div class="lineBtn"><button class="fa fa-chevron-circle-down" bs-dropdown="sfc.buildPperateFormulaLineDP($index)" ></button></div>
+									<ul class="fItmsUL">
+										<li ng-class="{'itmSelected':itm.selected,'fItm':true, 'emptyItm':!itm.displayLabel}" ng-repeat="itm in ln.items" ng-click="sfc.toggleItemSel($index, ln)" data-drop="{{itm.isInput ? 'false': 'true'}}" ng-model='itm' jqyoui-droppable="{onDrop:'sfc.dropCallback(itm, $index)',onOver:'sfc.onDropOver(ln,itm)',onOut:'sfc.onDropOut(ln,itm)'}">
+											<div class="fItmC" ng-mouseenter="itm.showAction = true" ng-mouseleave="itm.showAction = false" ng-show="!itm.isInput">
+												<span class="itemDisp">{{itm.displayLabel}}</span>
+												<button type="button" class="actBtn" ng-show="itm.showAction" data-animation="null" bs-dropdown="sfc.buildItemDropDown(itm)">
+												 	<span class="fa fa-sort-desc"></span>
+												</button>
+											</div>
+											<div class="fItmC-input" ng-show="itm.isInput" >
+												<span>
+													<input class="itemInput" type="text" ng-model="itm.formulaKey"/>
+													<span class="okBtn glyphicon glyphicon-ok" ng-click="sfc.finishItemEdit()"></span>
+												</span>
+											</div>
+											<div class="funcParamEdit" ng-show="itm.showParamEdit">
+												<button class="collapseBtn fa fa-sort-asc" ng-click="sfc.closeParamEdit(itm)"></button>
+												<ul>
+													<li ng-repeat="param in itm.paramList">
+														<label>{{param.name}}</label>
+														<span ng-show="param.type == 'STRING' || param.type == 'NUMBER'">
+															<input type="text" ng-model="param.value"/>
+														</span>
+														<span ng-show="param.type == 'VAR'" ng-model='param.dropItem' data-drop="true" jqyoui-droppable="{onDrop:'sfc.onParamDropCallback(param)',onOver:'sfc.onDropOver()',onOut:'sfc.onDropOut()'}">
+															<input type="text" disabled="disabled" ng-model='param.dropItem.formulaKey' placeholder="drop here" />
+														</span>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="expert_mode" ng-show="formula.isExpertMode">
+							<textarea id="formulaTextArea" disabled="disabled" class="disabled" ng-model="formula.formattedLine"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	      <div class="modal-footer">
+	      	<div id="ppw-wizardCtrl">
+				<button class="btn btn-primary cancelBtn" ng-click="$hide()">Cancel</button>
+				<button class="btn btn-primary saveBtn" ng-click="formula.savetoMem()">OK</button>
+			</div>
+	      </div>
+    </div>
+  </div>
+</div>
+

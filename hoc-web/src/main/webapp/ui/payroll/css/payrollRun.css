@@ -1,0 +1,58 @@
+.payrollRunForm{
+	width:80%;
+}
+
+.payrollRunForm .formRow{
+	height:40px;
+}
+
+.payrollRunForm .slabel{
+	display:inline-block;
+	color:#666;
+	font-size:13px;
+	line-height: 40px;
+	font-weight: 700px;
+	line-height:40px;
+	float:left;
+}
+
+.payrollRunForm .rowLabel{
+	width:20%;
+}
+
+.payrollRunForm .rowInput{
+	width:40%;
+	display:inline-block;
+}
+
+.payrollRunForm .yearLabel{
+	width:20%;
+}
+
+.yearInput{
+	width:15%;
+	display:inline-block;
+	float:left;
+}
+
+.seqLabel{
+	width:10%;
+	margin-left:15px;
+}
+
+.seqInput{
+	width:10%;
+	display:inline-block;
+	float:left;
+}
+
+.typeLabel{
+	width:8%;
+	margin-left:15px;
+}
+
+.typeInput{
+	width:15%;
+	display:inline-block;
+	float:left;
+}

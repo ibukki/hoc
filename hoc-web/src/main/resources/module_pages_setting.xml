@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings>
+	<modules>
+		<module id="admintools">
+			<title>Admin Tools</title>
+			<icon>glyphicon glyphicon-user</icon>
+			<pages>
+				<page id="permission" has-include="true">
+					<title>Permission</title>
+					<permission></permission>
+					<url>ui/admintools/pages/permissionMgmt.html</url>
+				</page>
+				<page id="role" has-include="true">
+					<title>Role</title>
+					<permission></permission>
+					<url>ui/admintools/pages/roleMgmt.html</url>
+				</page>
+				<page id="user" has-include="true">
+					<title>User</title>
+					<permission></permission>
+					<url>ui/admintools/pages/userMgmt.html</url>
+				</page>
+			</pages>
+		</module>
+		<module id="payroll">
+			<title>Payroll</title>
+			<icon>fa fa-paypal</icon>
+			<sub-module id="configuration">
+				<title>Configuration</title>
+				<icon>glyphicon glyphicon-cog</icon>
+				<pages>
+					<page id="payrollperiod" has-include="true">
+						<title>PAYROLL_PERIOD_TITLE</title>
+						<permission>payrollperiod</permission>
+						<icon>glyphicon glyphicon-time</icon>
+						<url>ui/payroll/pages/payrollPeriod.html</url>
+					</page>
+					<page id="wagetype" has-include="true">
+						<title>Wage Type</title>
+						<permission>wagetype</permission>
+						<url>ui/payroll/pages/wageType.html</url>
+					</page>
+					<page id="variableConfig" has-include="true">
+						<title>Variables Config</title>
+						<permission>variableconfg</permission>
+						<url>ui/payroll/pages/variableConfiguration.html</url>
+					</page>
+					<page id="schemaConf" has-include="true">
+						<title>Schema Config</title>
+						<permission>schema_conf</permission>
+						<url>ui/payroll/pages/schemaConfiguration.html</url>
+					</page>
+				</pages>
+			</sub-module>
+			<pages>
+				<page id="payrollrun" has-include="true">
+					<title>Run</title>
+					<permission>payrollrun</permission>
+					<icon>glyphicon glyphicon-flash</icon>
+					<url>ui/payroll/pages/payrollRun.html</url>
+				</page>
+			</pages>
+		</module>
+	</modules>
+</settings>

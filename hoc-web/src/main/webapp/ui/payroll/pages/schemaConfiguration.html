@@ -1,0 +1,60 @@
+<div class="schemaConfigPanel" ng-controller="schemaConfigurationController as sfc">
+	<div class="page-header">
+	  <h1>Schema Configuration<small></small><span class="glyphicon glyphicon-star-empty page-favor-icon" title="Add to favorite"></span></h1>
+	</div>
+	<div class="schemaConfContainer">
+		<div class="schemaConfButtonSet">
+				  <button class="btn btn-primary" ng-click='schema.deleteConfig()'>
+				  	<span class="glyphicon glyphicon-trash"></span>
+				  </button>
+				  <button class="btn btn-primary" ng-click='schema.createConfig()'>
+				  	<span class="glyphicon glyphicon-plus"></span>
+				  </button>
+				  <button class="btn btn-primary" ng-click='schema.saveConfig()'>
+				  	<span class="glyphicon glyphicon-floppy-disk" title="save"></span>
+				  </button>
+		</div>
+		<div class="schemaContainer">
+			<form class="stepForm">
+				<div class="stepRow">
+					<span class="stepLabel">Schema ID</span>
+					<div class="input-group stepInput">
+					  <input ng-model="schema.selectedSchema" ng-options="sch.configId for sch in schema.schemaData" type="text" class="form-control" placeholder="Schema ID" bs-typeahead>
+					  <span class="glyphicon glyphicon-search input-group-addon schemaSearchIcon" ng-click="schema.SearchSchema()" style="top:0px"></span>
+					</div>
+				</div>
+				<div class="stepRow">
+					<span class="stepLabel">Description</span>
+					<span class="stepInput"><textarea class="form-control" ng-model="schema.selectedSchema.description" placeholder="Description"></textarea></span>
+				</div>
+			</form>
+			<div class="stepGrid" id="stepGrid">
+				<div>
+					<h3>
+						Steps <span class="titleInfo">( select one step to configure )</span>
+					</h3>
+					<div>
+						<button type="button" class="btn-sm btn-primary" ng-click="schemaStep.addStep()">Add</button>
+						<span class="glyphicon glyphicon-chevron-down btn" ng-click="schemaStep.scrollDown()"></span>
+					</div>
+				</div>
+				<div>
+					<div data-ui-grid="schemaStep.gridOptions" external-scopes="schemaStep" data-container="schemaContainer" ui-grid-selection ui-grid-resize-columns ui-grid-cellnav data-ui-grid-edit class="ssGrid"></div>
+				</div>
+			</div>
+			<div class="stepFlowGrid" id="stepFlowGrid">
+				<div>
+					<h3>Step Flow of {{schemaStep.rowSelection.stepName}}</h3>
+				</div>
+				<div>
+					<div class="buttonset">
+						<button type="button" class="btn-sm btn-primary" ng-disabled="schemaStep.rowSelection.stepName ? '' : 'disabled'" ng-click="schemaStepFlow.addFlowStep('input')">Add Input</button>
+						<button type="button" class="btn-sm btn-primary" ng-disabled="schemaStep.rowSelection.stepName ? '' : 'disabled'" ng-click="schemaStepFlow.addFlowStep('output')">Add Output</button>
+						<span class="glyphicon glyphicon-chevron-up btn" ng-click="schemaStepFlow.scrollUp()"></span>
+					</div>
+					<div data-ui-grid="schemaStepFlow.gridOptions" external-scopes="schemaStepFlow" data-container="schemaContainer" ui-grid-selection ui-grid-resize-columns ui-grid-cellnav data-ui-grid-edit class="ssfGrid"></div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>

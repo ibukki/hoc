@@ -1,0 +1,64 @@
+<div class="payrollPeriodPanel" ng-controller="payrollPeriodController">
+	<div class="page-header">
+	  <h1>{{i18n.PAYROLL_PERIOD_TITLE}}<small></small><span class="glyphicon glyphicon-star-empty page-favor-icon" title="Add to favorite"></span></h1>
+	</div>
+	<div class="payrollPeriodContainer">
+		<div class="payrollPeriodSidePanel">
+			<div class="payrollPeriodSearch">
+			    <div class="input-group">
+			      <input type="text" class="form-control">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button">
+			        	<i class="fa fa-search fa-sm"></i>Go!
+			        </button>
+			      </span>
+			    </div><!-- /input-group -->
+			</div>
+			<div class="payrollPeriodNavi">
+			 <navi>
+			 	<span ng-if="doing_async">...loading...</span>
+			 	<abn-tree tree-data="payrollPeriodNaviTreeData" on-select="payrollPeriodNaviTreeHandler(branch)" expand-level="2"></abn-tree>
+			 </navi>
+			</div>
+		</div>
+		<div class="payrollPeriodContent">
+			<div class="payrollPeriodButtonSet">
+				  <a class="btn btn-primary btn-sm" href="javascript:void(0)" ng-click='createNewPayPeriod()'>
+  						<i class="glyphicon glyphicon-plus fa-sm"></i> New
+  				   </a>
+  				   <a class="btn btn-info btn-sm" href="javascript:void(0)" ng-click='editPayPeriod()'>
+  						<i class="fa fa-pencil-square-o fa-sm"></i> Edit
+  				  </a>
+  				   <a class="btn btn-danger btn-sm" href="javascript:void(0)" ng-click='deletePayPeriod()'>
+  						<i class="fa fa-trash-o fa-sm"></i> Delete
+  				   </a>	
+				  
+			</div>
+			<div class='payrollPeriodInputForm'>
+				<table style="margin:0 auto;width:80%">
+					<tr>
+						<td>{{i18n.PAYROLL_PERIOD_YEAR}}</td>
+						<td>
+							<input type="text" class="form-control" disabled ng-model="payrollPeriodPage.payrollPeriodYear"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Period Name</td>
+						<td>
+							<input type="text" class="form-control" disabled ng-model="payrollPeriodPage.payrollPeriodName"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Payroll Type</td>
+						<td>
+							<input type="text" class="form-control" disabled ng-model="payrollPeriodPage.payrollPeriodType"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class='payrollPeriodTable'>
+				<div ui-grid="pygrid" ng-show="pygrid.data" class="payrollPeriodGrid" style="width:80%;min-width:600px;margin-left:10%"></div>
+			</div>
+		</div>
+	</div>
+</div>
