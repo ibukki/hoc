@@ -5,12 +5,15 @@ package com.prometheus.hoc.user.vo;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import com.prometheus.hoc.user.eo.UserEO;
 
 /**
  * @author haibin
  *
  */
+@JsonIgnoreProperties(value={"agreement"})
 public class UserVO extends UserEO implements Serializable {
 	/**
 	 * serialVersionUID
