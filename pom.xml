@@ -12,7 +12,6 @@
 		<module>hoc-timemgm</module>
 		<module>hoc-user</module>
 		<module>hoc-payroll</module>
-		<module>hoc-original</module>
 		<module>hoc-authentication</module>
 	</modules>
 	<properties>
